@@ -1,0 +1,47 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile and Run C++",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=${input:cppVersion}",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "&&",
+                "&",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            },
+            "problemMatcher": "$gcc"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "cppVersion",
+            "type": "pickString",
+            "description": "Select C++ Standard Version",
+            "options": [
+                "c++11",
+                "c++14",
+                "c++17",
+                "c++20",
+                "c++23"
+            ],
+            "default": "c++20"
+        }
+    ]
+}
