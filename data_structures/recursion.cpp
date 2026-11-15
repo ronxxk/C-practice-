@@ -11,7 +11,17 @@ int factorial(int num){
     }   
 }
 
+int fibonacci(int num){
+    if (num <= 1)
+    {
+        return num;
+    }
+    else{
+        return fibonacci(num - 1) + fibonacci(num - 2);
+    }
+}
+
 int main(){
-    int x = 3;
-    std::cout << factorial(x);
+    int x = 5;
+    std::cout << factorial(x) << "\n" << fibonacci(x);
 }
